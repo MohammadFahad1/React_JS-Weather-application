@@ -3,9 +3,12 @@ import React from 'react'
 export default function Search(props) {
     return (
         <>
-            <div className="container mt-3">
+            <div className="container-fluid mt-3">
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-2">
+                        <h2>Recent</h2><hr />
+                    </div>
+                    <div className="col-md-2">
                         <div className="form-group">
                             <label htmlFor="city">Type City Name</label>
                             <input type="text" name="city" value={props.city} onChange={props.change} id="city" className="form-control" readOnly />
