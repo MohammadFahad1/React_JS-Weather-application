@@ -34,7 +34,7 @@ export default function Search(props) {
                         </div>
                     </div>
                     <div className="col-md-1 mt-3">
-                        <button className="btn btn-primary"><i className="fa-solid fa-magnifying-glass"></i></button>
+                        <button className="btn btn-primary" onClick={props.search}><i className="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
             </div>

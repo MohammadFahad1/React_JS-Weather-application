@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Search from './Search'
 import Result from './Result'
+import axios from 'axios'
 
 class Weather extends Component {
     constructor(props) {
@@ -31,6 +32,7 @@ class Weather extends Component {
         }
     }
 
+
     locationHandler = () => {
         this.setState({
             lat: "",
@@ -43,14 +45,28 @@ class Weather extends Component {
                 (res) => {
                     this.setState({
                         lat: res.coords.latitude,
-                        lon: res.coords.longitude
+                        lon: res.coords.longitude,
                     });
+                    this.searchHandler();
                 },
                 (error) => {
                     console.log(error);
                 }
             );
         }
+    }
+
+    searchHandler = () => {
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${this.state.lat}&lon=${this.state.lon}&appid=0911288136dc9dc17b1a4a0cacb63e8c`)
+            .then((result) => {
+                this.setState({
+                    city: result.data.name,
+                    weatherData: result.data
+                });
+            })
+            .catch((error) => {
+                console.log(error)
+            });
     }
 
     render() {
@@ -63,8 +79,11 @@ class Weather extends Component {
                     weatherData={this.state.weatherData}
                     change={this.changeHandler}
                     getLocation={this.locationHandler}
+                    search={this.searchHandler}
                 />
-                <Result />
+                <Result
+                    weatherData={this.state.weatherData}
+                />
             </>
         )
     }
