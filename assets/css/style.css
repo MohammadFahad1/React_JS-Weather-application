@@ -1,0 +1,30 @@
+.let,
+.lon {
+    display: flex;
+}
+
+.let input,
+.lon input {
+    width: 100%;
+    margin: 0 5px auto;
+}
+
+.let p,
+.lon p {
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    padding: 6px;
+}
+
+.lon {
+    margin-top: 27px;
+}
+
+button.btn.btn-primary {
+    margin-top: 10px;
+}
+
+.card {
+    margin: 10px auto;
+}
